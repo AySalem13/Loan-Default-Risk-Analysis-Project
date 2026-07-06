@@ -126,3 +126,7 @@ Built a full correlation matrix across all numeric variables against `defaulted`
 **Ruled out:** Loan amount, employment status category, and (independently) interest rate — the latter due to multicollinearity with credit score.
 
 ## Repo Structure
+
+## Project Source
+
+The business scenario and objectives for this project were sourced from [AnalystBuilder](https://www.analystbuilder.com/projects/loan-default-risk-analysis-Vjfdl?tab=overview).
