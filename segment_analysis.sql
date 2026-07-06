@@ -28,7 +28,7 @@ GROUP BY
         WHEN borrower_profiles.credit_score >= 750 THEN '750+'
         ELSE 'Unknown'
     END
--- Now same thing but the resolved-only rate --
+-- Will now check same thing but the resolved-only rate --
 SELECT 
     CASE 
         WHEN borrower_profiles.credit_score BETWEEN 520 AND 599 THEN '520-599'
@@ -82,7 +82,7 @@ GROUP BY
 	END
 ORDER BY sort_helper
 
--- testing 2 buckets above and below 50% -- 
+-- testing 2 buckets above and below 50% to confirm my theory-- 
 
 SELECT 
 	CASE	
@@ -97,7 +97,7 @@ GROUP BY
 	END
 
 /*My conclusion: DTI ratio shows a clear risk threshold at 50%. Loans with DTI under 50% default at 16.1%, while 
-loans at or above 50% default at 34.3% — more than double. We recommend capping approvals at 50% DTI, or 
+loans at or above 50% default at 34.3% — more than double. I recommend capping approvals at 50% DTI, or 
 applying stricter terms/higher scrutiny above that threshold.*/
 
 -- Q3a: Default rate by loan purpose 
@@ -154,3 +154,7 @@ GROUP BY
 		WHEN years_employed < 2 THEN '<2 years'
 		WHEN years_employed >=2 THEN '>2 years'
 	END
+
+/* There is a noticiable gap in the default rates that shows people with less than 2 years of experience 
+show a higher default rate (34.5%) than people with more than 2 years (22.6). But I would say that this isnt
+something worth noting as a top predictor like the other factors */
